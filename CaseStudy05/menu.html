@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+  <body onload="updatePrices()">
+    <div id="wrapper">
+      <header>
+        <a href="admin.html">
+        <img src="assets/headerlogo.png" width="500" height="100" /></a>
+      </header>
+      <div id="leftcolumn">
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="music.html">Music</a></li>
+            <li><a href="jobs.html">Jobs</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div id="rightcolumn">
+        <div class="menucontent">
+          <h2>Coffee at JavaJam</h2>
+          <div class="boxcontent">
+            <form action="submitorder.php" method="post">
+              <table id="menutab">
+                <tbody>
+                  <tr>
+                    <td><h4>Just Java</h4></td>
+                    <td>
+                      Regular house blend, decaffeinated coffee, or flavor of the
+                      day <br />
+                      <strong>Endless Cup $</strong><strong id="javaPrice">2.00</strong>
+                    </td>
+                    <td>
+                      <input type="text" id="java_qty" name="java_qty" size="3" placeholder="Quantity">
+                    </td>
+                    <td>
+                      <small>Subtotal:<br></small>
+                      <input type="text" id="java_subtotal" name="java_subtotal" readonly size="4" value="0.00"/>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><h4>Cafe au Lait</h4></td>
+                    <td>
+                      House blended coffee infused into a smooth, steamed milk<br />
+                      <strong>Single $</strong><strong id="cafeSinglePrice">2.00</strong>
+                      <input type="radio" checked="checked" id="cafe_single" name="cafeaulait" value="single"/>
+                      <strong>Double $</strong><strong id="cafeDoublePrice">3.00</strong>
+                      <input type ="radio" id="cafe_double" name="cafeaulait" value="double"/>
+                    </td>
+                    <td>
+                      <input type="text" id="cafe_qty" name="cafe_qty" size="3" placeholder="Quantity">
+                    </td>
+                    <td>
+                      <small>Subtotal:<br></small>
+                      <input type="text" id="cafe_subtotal" name="cafe_subtotal" readonly size="4" value="0.00"/>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><h4>Iced Cappuccino</h4></td>
+                    <td>
+                      Sweetened espresso blended with icy-cold milk and served in
+                      a chilled glass<br />
+                      <strong>Single $</strong><strong id="capSinglePrice">4.75</strong>
+                      <input type="radio" checked="checked" id="cappuccino_single" name="cappuccino" value="single"/>
+                      <strong>Double $</strong><strong id="capDoublePrice">5.75</strong>
+                      <input type ="radio" id="cappuccino_double" name="cappuccino" value="double"/>
+                    </td>
+                    <td>
+                      <input type="text" id="cappu_qty" name="cappu_qty" size="3" placeholder="Quantity">
+                    </td>
+                    <td>
+                      <small>Subtotal:<br></small>
+                      <input type="text" id="cappu_subtotal" name="cappu_subtotal" readonly size="4" value="0.00"/>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" style="text-align: right;"><strong>Total Price:</strong></td>
+                    <td colspan="2">$<input type="text" id="total_price" name="total_price" readonly size="4"></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div>
+                <input type="submit" value="Check Out" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <small><i>Copyright &copy; 2014 JavaJam Coffee House</i></small
+        ><br />
+        <small
+          ><i>
+            <a href="mailto:Ariel@Goh.com" style="color: #340000">Ariel@GohSooNing.com</a>
+            </i
+          ></small
+        >
+      </footer>
+    </div>
+    <script src="menuupdate.js"></script>
+    <script>
+      async function updatePrices(){
+        try {
+          const getResult = await $.ajax({
+            url: "get_price.php",
+            type: "GET",
+            dataType: "json",
+          });
+          if (getResult.status === 'success') {
+            console.log('Retrieving prices...')
+            document.getElementById("javaPrice").innerHTML = getResult.prices[0].price;
+            document.getElementById("cafeSinglePrice").innerHTML = getResult.prices[1].price;
+            document.getElementById("cafeDoublePrice").innerHTML = getResult.prices[2].price;
+            document.getElementById("capSinglePrice").innerHTML = getResult.prices[3].price;
+            document.getElementById("capDoublePrice").innerHTML = getResult.prices[4].price;
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    </script>
+  </body>
+</html>

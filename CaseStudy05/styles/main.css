@@ -1,0 +1,148 @@
+body {
+    font-family: Verdana, Arial, sans-serif;
+    background-color: #e7de99;
+}
+a:link {
+    color: #74543d;
+}
+a:active {
+    color: #d1b38d;
+}
+a:visited {
+    color: #d1b38d;
+}
+
+#wrapper {
+    background-color: #e2d1b3;
+    color: #f5f3c1;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 800px;
+    box-shadow: 8px 8px 10px #340000;
+}
+#leftcolumn {
+    float: left;
+    width: 150px;
+}
+#rightcolumn {
+    margin-left: 155px;
+    background-color: #f5f5dd;
+    color: #340000;
+    min-height: 250px;
+}
+header {
+    background-color: #d1b38d;
+    color: #340000;
+    padding: 10px 10px 10px 330px;
+}
+h2 {
+    color: #340000;
+    font-family: arial, sans-serif;
+}
+.content,.menucontent {
+    padding: 1vw;
+}
+.menucontent h2{
+    margin-left: 8vw;
+}
+.boxcontent {
+    padding: 0 0 20px 20px;
+}
+#floatleft {
+    margin: 10px;
+    margin-right: 50px;
+    float: left;
+}
+
+footer {
+    background-color: #d1b38d;
+    font-size: 70%;
+    color: #340000;
+    text-align: center;
+    clear: right;
+    padding: 20px;
+}
+div.boxcontent ul li {
+    list-style-image: url(../assets/coffee-bag.png);
+    list-style-position: inside;
+    /*https://www.flaticon.com/free-icons/coffee Coffee icons created by Fir3Ghost - Flaticon*/
+}
+nav ul {
+    list-style-type: none;
+    font-family: arial, sans-serif;
+    font-weight: bold;
+    font-size: large;
+    margin-left: 10px;
+    list-style-image: none;
+}
+nav a {
+    text-decoration: none;
+}
+
+table#menutab,table#reporttab {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+#menutab td,#reporttab td {
+    padding: 10px;
+}
+#menutab td h4,#reporttab td h4 {
+    text-align: center;
+    font-weight: 600;
+    font-size: 16px;
+}
+#menutab tr:nth-of-type(odd),#reporttab tr:nth-of-type(odd) {
+    background-color: #d1b38d;
+}
+
+.boxcontent table#saletab {
+    width: 80%;
+    margin-left: auto;
+    display: grid;
+    margin-right: auto;
+}
+
+ table#saletab tbody td {
+    padding: 0.5vw;
+}
+
+table tbody button{
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 0.3vw;
+    color: #340000;
+    background-color: #e2d1b3;
+    font-weight: 600;
+}
+table tbody button:hover{
+    background-color: #340000;
+    color: #e2d1b3;
+    border: 1px solid #e2d1b3;
+}
+
+.boxcontent table#saletab h4 {
+    text-align: start;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+table#reporttab thead tr th{
+    padding: 0.5vw;
+    background-color: rgb(113, 77, 51);
+    color: #fff;
+}
+table#reporttab tbody tr td:first-of-type{
+    font-weight: 600;
+    font-size: 16px;
+    color: #340000;
+}
+
+#errorM {
+    color: #5c0a0a;
+    font-size: small;
+    font-weight: 600;
+    margin-left: 30%;
+}

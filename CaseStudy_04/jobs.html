@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+      table {
+        margin-left: 160px;
+        margin-top: 20px;
+        border: 10px;
+        width: 400px;
+      }
+      td:first-child {
+        text-align: right;
+      }
+      td {
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <header>
+        <img src="assets/headerlogo.png" width="500" height="100" />
+      </header>
+      <div id="leftcolumn">
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="music.html">Music</a></li>
+            <li><a href="jobs.html">Jobs</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div id="rightcolumn">
+        <div class="content">
+          <h2>Jobs at JavaJam</h2>
+          <p
+            >Want to work at JavaJam? Fill up the form below to start your
+            application. <br />Required fields are marked with an asterisk *</p
+          >
+          <div class="boxcontent">
+            <form method="post" action="show_post.php">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>*Name:</td>
+                    <td><input type="text" name="name" id="name" autocomplete="off" /></td>
+                  </tr>
+                  <tr>
+                    <td>*Email:</td>
+                    <td><input type="email" name="email" id="email" autocomplete="off" /></td>
+                  </tr>
+                  <tr>
+                    <td>Start Date:</td>
+                    <td>
+                      <input type="date" name="startdate" id="startdate"
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>*Experience:</td>
+                    <td>
+                      <textarea
+                        name="experience"
+                        id="experience"
+                        rows="4"
+                        cols="40"
+                        placeholder="Enter your experience here"
+                        required
+                      ></textarea
+                      >
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <h3 id="errorM"></h3>
+              <input type="reset" value="Clear" style="margin-bottom: 20px;"/> <br />
+              <input type="submit" value="Apply Now" /><br />
+            </form>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <small><i>Copyright &copy; 2014 JavaJam Coffee House</i></small
+        ><br />
+        <small
+          ><i
+            ><a href="mailto:Ariel@Goh.com" style="color: #340000"
+              >Ariel@GohSooNing.com</a
+            ></i
+          ></small
+        >
+      </footer>
+    </div>
+    <script src="formvalidation.js"></script>
+  </body>
+</html>

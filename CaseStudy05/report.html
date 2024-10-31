@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+  <body onload="getBestseller()">
+    <div id="wrapper">
+      <header>
+        <img src="assets/headerlogo.png" width="500" height="100" />
+      </header>
+      <div id="leftcolumn" style="text-align: center;">
+        <h2>Daily <br>Sales <br>Report</h2>
+        <a href="admin.html" style="color:#340000">Cancel</a>
+      </div>
+      <div id="rightcolumn">
+        <div class="content">
+          <h2 style="margin-left: 8vw;">Click a big shiny button to generate a daily sales report!</h2>
+          <div class="boxcontent">
+          <table id="saletab">
+              <tbody>
+                <tr>
+                    <td><button onclick="window.location.href='salesbyproduct.php'">Generate Report</button></td>
+                  <td><h4>Total Dollar & Quantity Sales by Product</h4></td>
+                </tr>
+                <tr>
+                  <td><button onclick="window.location.href='salesbycategory.php'">Generate Report</button></td>
+                  <td><h4>Total Dollar & Quantity Sales by Category(Shots)</h4></td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <h4>Popular Option of Best-Selling Product: <span id="popular">____</span> Shot of <span id="bestseller">____</span></h4>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <small><i>Copyright &copy; 2014 JavaJam Coffee House</i></small
+        ><br />
+        <small
+          ><i
+            ><a href="mailto:Ariel@Goh.com" style="color: #340000"
+              >Ariel@GohSooNing.com</a
+            ></i
+          ></small
+        >
+      </footer>
+    </div>
+    <script>
+      async function getBestseller(){
+        try {
+          const getResult = await $.ajax({
+            url: "getbestseller.php",
+            type: "GET",
+            dataType: "json",
+          });
+          if (getResult.status === 'success') {
+            console.log('Retrieving bestseller...')
+            document.getElementById("popular").innerHTML = getResult.popular;
+            document.getElementById("bestseller").innerHTML = getResult.bestseller;
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    </script>
+  </body>
+</html>
